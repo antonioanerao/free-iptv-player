@@ -1,0 +1,45 @@
+
+.btn-success{
+	background-color: #107d6a;
+	border-color: #107d6a;
+	&:hover{
+		background-color: #107d6a !important;
+		border-color: #107d6a !important;
+	}
+	&:active{
+		background-color: #107d6a !important;
+		border-color: #107d6a !important;
+	}
+	&:focus{
+		background-color: #107d6a !important;
+		border-color: #107d6a !important;
+		box-shadow: none !important;
+	}
+}
+.btn-primary{
+	background-color: $color-primary;
+	border-color: $color-primary;
+	&:hover{
+		background-color: $color-primary !important;
+		border-color: $color-primary !important;
+	}
+	&:active{
+		background-color: $color-primary !important;
+		border-color: $color-primary !important;
+	}
+	&:focus{
+		background-color: $color-primary !important;
+		border-color: $color-primary !important;
+		box-shadow: none !important;
+	}
+}
+.btn{
+	@include card-1();
+}
+.btn-outline-primary{
+    border-radius: 50px;
+    padding: 5px 25px;
+    color: $color-primary;
+    border-color: $color-primary;
+    font-family: $mouse-400;
+}

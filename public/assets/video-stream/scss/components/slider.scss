@@ -1,0 +1,40 @@
+.banner-card{
+    padding-top: 20px;
+    .video-card{
+        margin-bottom: 15px;
+    }
+    .banner-slid{
+        padding-right: 0px;
+        @media screen and (max-width: 767px){
+            padding-right: 15px;
+        }
+    }
+    .detail-card{
+        position:absolute;
+        background-color: rgba(0,0,0,0.3);
+        margin-top: -50px;
+        height: 50px;
+        width: 100%;
+        font-size: 1rem;
+        color: #FFF;
+        padding: 10px;
+        z-index: 999;
+    }
+}
+.video-card{
+    .detail-card{
+        position:absolute;
+        background-color: rgba(0,0,0,0.3);
+        margin-top: -50px;
+        height: 50px;
+        width: 89%;
+        font-size: .85rem;
+        color: #FFF;
+        padding: 5px;
+    }
+}
+.vgbh{
+    @media screen and (max-width: 767px){
+        margin-top: 15px;
+    }
+}

@@ -1,0 +1,22 @@
+.sesion-type{
+     @include big-padding();
+     background-color: #cccccc24;
+    .single-sess{
+        @include shado-1();
+        background-color: #FFF;
+         margin-bottom: 30px;
+        img{
+            width: 100%;
+        }
+        p{
+            padding: 10px;
+            font-family: $mouse-500;
+            border-radius: 5px;
+            text-align: center;
+        }
+    }
+    .sess-ok{
+        padding: 57px 30px;
+        text-align: center;
+    }
+}

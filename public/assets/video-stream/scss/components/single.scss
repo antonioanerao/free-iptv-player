@@ -1,0 +1,57 @@
+.video-cover{
+    iframe{
+        width: 100%;
+    }
+    p{
+        margin-top: 15px;
+        font-size: .89rem;
+    }
+}
+.comment-container{
+    .comment-box{
+        background-color: #f7f7f7;
+        padding: 5px;
+        margin-bottom: 15px;
+        h6{
+            margin-bottom: 0px;
+            font-family: $mouse-300;
+        }
+        p{
+            margin-top: 5px;
+        }
+        .detaila{
+            padding: 10px;
+            padding-left: 0px;
+        }
+        .mghji{
+            padding: 10px;
+        }
+    }
+}
+.comment-text{
+    width: 100%;
+    margin-left: -10px;
+    margin-right: -10px;
+    .form-row{
+       
+    }
+}
+.contri-bghy{
+    display: flex;
+    margin-bottom: 20px;
+    .image{
+        img{
+            width: 180px;
+        }
+    }
+    .detail{
+        padding: 0px 5px;
+        h6{
+            margin-bottom: 0px;
+            font-size: 1.2rem;
+        }
+        span{
+            font-size: .9rem;
+        }
+    }
+}

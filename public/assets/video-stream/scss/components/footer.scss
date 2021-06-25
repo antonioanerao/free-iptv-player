@@ -1,0 +1,42 @@
+.footer{
+    @include big-padding();
+    h2{
+        font-size: 1rem;
+        font-weight: 600;
+        font-family: $mouse-300;
+        margin-bottom: 10px;
+        i{
+            background-color: $color-primary;
+            width: 30px;
+            height: 30px;
+            text-align: center;
+            padding-top: 3px;
+            color: #FFF;
+            padding-top: 6px;
+            margin-right: 3px;
+        }
+    }
+    .about{
+        p{
+            font-size: .85rem;
+        }
+    }
+    .link-list{
+        li{
+            padding:3px;
+            i{
+                float: right;
+            }
+        }
+    }
+}
+.copy{
+    padding: 15px;
+    background-color: #cccccc26;
+    span{
+        float: right;
+        i{
+            margin-right: 15px;
+        }
+    }
+}

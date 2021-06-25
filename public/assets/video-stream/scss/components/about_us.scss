@@ -1,0 +1,23 @@
+.about-company{
+    @include big-padding();
+    background-color: #fff;
+    .detail{
+        h3{
+            font-family: $mouse-300;
+            font-size: 1.8rem;
+        }
+        p{
+            font-size: .85rem;
+            text-align: justify;
+        }
+    }
+    .imag{
+        padding: 10px;
+        img{
+           @include shado-1();
+           background-color: #FFF;  
+            padding: 5px;
+        }
+       
+    }
+}

@@ -1,0 +1,75 @@
+header{
+    @include shado-1();
+    .header-top{
+        background-color: $color-primary;
+       
+        .col-det{
+            .ulleft{
+                li{
+                    float: left;
+                    padding: 8px;
+                    color: #FFF;
+                    font-size: .85rem;
+                    i{
+                        margin-right: 5px;
+                    }
+                    span{
+                        margin-left: 15px;
+                    }
+                }
+            }
+            .ulright{
+                float: right;
+                li{
+                    float: left;
+                    padding: 8px;
+                    color: #FFF;
+                    font-size: .85rem;
+                    i{
+                        margin-right: 5px;
+                    }
+                    span{
+                        margin-left: 15px;
+                    }
+                }
+            }
+        }
+    }
+    .header-bottom{
+        img{
+            margin-top: 8px;
+            @media screen and (max-width: 991px){
+                padding: 5px;
+                margin-top: 0px;
+                max-width: 230px;
+            }
+        }
+    }
+    .nav-col{
+        .navbar-nav{
+            li{
+                padding: 7px 20px;
+                font-weight: 600;
+            }
+        }
+    }
+}
+.navbar{
+    @media screen and (max-width: 767px){
+        padding: 0px;
+    } 
+}
+.navbar-toggler{
+   position: absolute;
+   right: 0px;
+   top: 19px;
+   @media screen and (max-width: 767px){
+        top: -50px;
+        
+        
+   }
+}
+.scroll-to-fixed-fixed{
+    background-color: #FFF;
+    @include shado-1();
+}

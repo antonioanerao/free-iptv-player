@@ -1,0 +1,49 @@
+.video-blog{
+    @include big-padding();
+    .video-ro{
+        margin-bottom: 15px;
+        @media screen and (max-width: 575px){
+            text-align: center;
+        }
+        .detail{
+            padding-left: 0px;
+            h6{
+                font-size: 1rem;
+                font-weight: 600;
+                font-family: $mouse-300;
+                margin-top: 4px;
+            }
+            .counts{
+                font-size: .85rem;
+                span{
+                    margin-right: 10px;
+                }
+                i{
+                    font-size: .8rem;
+                    margin-right: 3px;
+                }
+            }
+            p{
+                font-size: .85rem;
+                margin-top: 8px;
+                margin-bottom: 8px;
+            }
+        }
+    }
+}
+.contri-row{
+    display: flex;
+    .image{
+        img{
+            width: 80px;
+        }
+        padding: 10px;
+    }
+    .detail{
+        flex-grow: 1;
+        padding: 10px;
+        padding-left: 0px;
+        margin: auto;
+        font-size: 1rem;
+    }
+}

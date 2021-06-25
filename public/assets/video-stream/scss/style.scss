@@ -1,0 +1,49 @@
+/* =======================================================================
+Template Name: Dil Hospital
+Author:  SmartEye Adminpanel
+Author URI: www.smarteyeapps.com
+Version: 1.0
+coder name:Prabin Raja
+Description: This Template is created for web template
+======================================================================= */
+
+/* ===================================== Import Less ================================== */
+@import 'variable';
+/* ===================================== Basic CSS ================================== */
+@import 'base/basic_setup';
+
+@import 'base/buttons';
+/* ===================================== Header CSS ================================== */
+
+@import 'components/header';
+
+/* ===================================== Slider CSS ================================== */
+@import 'components/slider';
+
+/* ===================================== Trending CSS ================================== */
+@import 'components/trending';
+
+/* ===================================== Latest CSS ================================== */
+@import 'components/latest';
+
+/* ===================================== Blog CSS ================================== */
+@import 'components/blog';
+
+/* ===================================== Blog CSS ================================== */
+@import 'components/about_us';
+
+/* ===================================== Blog CSS ================================== */
+@import 'components/single';
+
+/* ===================================== Ads CSS ================================== */
+@import 'components/ads';
+
+/* ===================================== Category CSS ================================== */
+@import 'components/category';
+
+/* ===================================== Quote CSS ================================== */
+@import 'components/quote';
+
+/* ===================================== Footer CSS ================================== */
+@import 'components/footer';
+
