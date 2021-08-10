@@ -31,18 +31,24 @@ class HomeController extends Controller
     public function index()
     {
         $movies = $this->iptvList
-            ->where('id', '=', 5590)
-            ->orWhere('id', '=', 5582)
-            ->orWhere('id', '=', 5607)
-            ->orWhere('id', '=', 5617)
+            ->where('id', '=', env('IPTV_INDEX_MOVIE_1'))
+            ->orWhere('id', '=', env('IPTV_INDEX_MOVIE_2'))
+            ->orWhere('id', '=', env('IPTV_INDEX_MOVIE_3'))
+            ->orWhere('id', '=', env('IPTV_INDEX_MOVIE_4'))
             ->get();
 
         $channels = $this->iptvList
-            ->where('id', 635)->orWhere('id', 629)->orWhere('id', 646)->orWhere('id', 643)->get();
+            ->where('id', env('IPTV_INDEX_LIVETV_1'))
+            ->orWhere('id', env('IPTV_INDEX_LIVETV_2'))
+            ->orWhere('id', env('IPTV_INDEX_LIVETV_3'))
+            ->orWhere('id', env('IPTV_INDEX_LIVETV_4'))
+            ->get();
 
         $series = $this->iptvList
-            ->where('id', 30810)->orWhere('id', 33717)->orWhere('id', 38398)
-            ->orWhere('id', 45399)
+            ->where('id', env('IPTV_INDEX_SERIE_1'))
+            ->orWhere('id', env('IPTV_INDEX_SERIE_2'))
+            ->orWhere('id', env('IPTV_INDEX_SERIE_3'))
+            ->orWhere('id', env('IPTV_INDEX_SERIE_4'))
             ->orderBy('id', 'desc')
             ->get();
 
