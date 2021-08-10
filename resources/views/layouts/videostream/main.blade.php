@@ -34,9 +34,9 @@
                 </div>
                 <div class="col-lg-6 col-md-12">
                     <ul class="ulright">
-                        @if(auth()->user()->email == env('IPTV_EMAIL_ADMIN'))
+                        @if(request()->session()->get('login') == env('IPTV_USER'))
                             <li>
-                                <a href="{{ route('admin.users.index') }}"><i class="fas fa-user-cog"></i>
+                                <a href="{{ route('admin.dashboard') }}"><i class="fas fa-user-cog"></i>
                                     Admin Panel
                                 </a>
                             </li>

@@ -34,14 +34,14 @@
         <div class="alert alert-danger text-center">{{ session('message') }}</div>
     @endif
 
-    <form method="post" action="/login">
-        {{ csrf_field() }} {{ method_field('POST') }}
-
-        @if ($errors->any())
+    <form name="pms_login" id="pms_login" action="{{ route('login') }}"  method="post">
+        @csrf
+        @if(session('error'))
             <div class="alert alert-danger text-center">
-               Invalid email/password
+                {{ session('error') }}
             </div>
         @endif
+
 
         <div class="form-group row">
             <div class="col-12">
@@ -49,7 +49,7 @@
                     <div class="input-group-prepend">
                         <span class="input-group-text"><i class="mdi mdi-account"></i></span>
                     </div>
-                    <input id="email" type="email" name="email" required value="{{ old('email') }}" class="form-control{{ $errors->any() ? ' is-invalid' : '' }}" placeholder="Email">
+                    <input type="text" name="login" required value="{{ old('login') }}" class="form-control{{ $errors->any() ? ' is-invalid' : '' }}" placeholder="Email">
                 </div>
             </div>
         </div>

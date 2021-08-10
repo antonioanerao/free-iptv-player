@@ -38,24 +38,22 @@ Auth::routes();
 
 Route::get('/home', [HomeController::class, 'index'])->name('home');
 
+
+/* Admin routes */
 Route::group(['prefix'=>'admin'], function() {
-    Route::get('/users/create', [UsersController::class, 'create'])
-        ->name('admin.users.create');
+    Route::get('/dashboard', [UsersController::class, 'dashboard'])->name('admin.dashboard');
+    Route::get('/', function() {
+        return redirect(route('admin.dashboard'));
+    });
 
-    Route::post('/users/create/store', [UsersController::class, 'store'])
-        ->name('admin.users.store');
-
-    Route::get('/users', [UsersController::class, 'index'])->name('admin.users.index');
-    Route::get('/users/edit/{id}', [UsersController::class, 'edit'])->name('admin.users.edit');
-    Route::patch('/users/edit/{id}', [UsersController::class, 'update'])->name('admin.users.update');
-    Route::patch('/users/edit/{id}/updatePassword', [UsersController::class, 'updatePassword'])->name('admin.users.updatePassword');
-
-    //Generate json from m3u file
+    /* Set channels */
     Route::get('generate-json', [M3u8ToJsonController::class, 'generateJson'])->name('admin.generateJson');
-
-    //store live/movies/series to database from json
     Route::get('store-channels', [M3u8ToJsonController::class, 'storeChannels'])->name('admin.storeChannels');
-
-    //Get EPG Info
     Route::get('/get-epg', [M3u8ToJsonController::class, 'getEpg'])->name('admin.getepg');
+
+});
+
+
+Route::get('movies', function() {
+    return \App\Models\IptvList::where('maingroup', 'movie')->get();
 });

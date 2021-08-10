@@ -19,7 +19,7 @@ class HomeController extends Controller
      */
     public function __construct(IptvList $iptvList)
     {
-        $this->middleware('auth');
+        $this->middleware('CustomAuth');
         $this->iptvList = $iptvList;
     }
 
@@ -38,7 +38,7 @@ class HomeController extends Controller
             ->get();
 
         $channels = $this->iptvList
-            ->where('id', 662)->orWhere('id', 656)->orWhere('id', 646)->orWhere('id', 643)->get();
+            ->where('id', 635)->orWhere('id', 629)->orWhere('id', 646)->orWhere('id', 643)->get();
 
         $series = $this->iptvList
             ->where('id', 30810)->orWhere('id', 33717)->orWhere('id', 38398)

@@ -10,7 +10,7 @@ use App\Models\IptvList;
 class PlayerController extends Controller
 {
     public function __construct(IptvList $iptvList) {
-        $this->middleware('auth');
+        $this->middleware('CustomAuth');
         $this->iptvList = $iptvList;
     }
 

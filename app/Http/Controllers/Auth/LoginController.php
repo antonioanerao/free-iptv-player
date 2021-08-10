@@ -37,4 +37,36 @@ class LoginController extends Controller
     {
         $this->middleware('guest')->except('logout');
     }
+
+    public function showLoginForm()
+    {
+        if (!empty(session('login'))) {
+            return redirect(route('index'));
+        } else {
+            return view('auth.login');
+        }
+    }
+
+    public function login() {
+        $data = request()->all();
+        $path = env('IPTV_URL').':'.env('IPTV_PORT').'/'.env('IPTV_PLAYER_API').'?username='
+            .$data['login'].'&password='.request('password');
+
+        $json = file_get_contents($path);
+
+        $json = json_decode($json, true);
+
+        if($json['user_info']['auth'] == 1){
+            if($json['user_info']['status'] == "Active") {
+                request()->session()->put('authenticated', time());
+                request()->session()->put('login', $json['user_info']['username']);
+                request()->session()->put('password', $json['user_info']['password']);
+                return redirect()->intended('home');
+            } else {
+                return back()->with('error', 'Your account has expired');
+            }
+        } else {
+            return back()->with('error', 'Invalid account or password');
+        }
+    }
 }

@@ -105,8 +105,7 @@
     <script>
         var playerobj = new Clappr.Player(
             {
-                source: "{{ env('IPTV_URL') .':'.env('IPTV_PORT').'/'.$video->maingroup.'/'.auth()->user()->iptv_login.'/'.auth()->user()->iptv_password.'/'.$video->tvmedia }}",
-                parentId: "#livevideo",
+                source: "{{ env('IPTV_URL') .':'.env('IPTV_PORT').'/'.$video->maingroup.'/'.session('login').'/'.session('password').'/'.$video->tvmedia }}",                parentId: "#livevideo",
                 autoPlay: true,
                 height: 'auto',
                 width: '100%',

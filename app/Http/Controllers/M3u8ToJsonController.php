@@ -11,15 +11,17 @@ use Illuminate\Support\Facades\Storage;
 class M3u8ToJsonController extends Controller
 {
     public function __construct() {
-        $this->middleware('auth');
+        $this->middleware('CustomAuth',)->except(['getEpg']);
     }
 
     public function generateJson() {
+        if(env('IPTV_USER') != session('login')) {
+            exit();
+        }
         if(request('make-json') == env('IPTV_MAKE_JSON_SECRET')) {
             /*
-            * Special thanks to onigetoc from https://github.com/onigetoc/m3u8-PHP-Parser for this beautiful code
-             * to convert .m3u to .json
-            */
+         * Special thanks to onigetoc from https://github.com/onigetoc/m3u8-PHP-Parser for this beautiful code
+         */
             header('Content-Type: application/json');
 
             $m3ufile = file_get_contents(storage_path().'/'.env("IPTV_FILE_NAME"));
@@ -67,20 +69,18 @@ class M3u8ToJsonController extends Controller
 
             //Store a json file into storage/iptv named list.json
             Storage::disk('iptv')->put('list.json', json_encode($items, true));
-
-            return "ok";
-        } else {
-            return "error";
         }
     }
 
     public function storeChannels() {
+        if(env('IPTV_USER') != session('login')) {
+            exit();
+        }
         if(request('store-channels') == env('IPTV_STORE_CHANNELS_SECRET')) {
             $file = storage_path() . '/iptv/list.json';
             $file = file_get_contents($file);
 
             $json = json_decode($file, true);
-
             foreach($json as $j) {
 
                 /*
@@ -100,7 +100,13 @@ class M3u8ToJsonController extends Controller
                     $mainGroup = 'series';
                     $tvmedia = str_replace(env('IPTV_URL').':'.env('IPTV_PORT').'/'.$mainGroup.'/'.
                         env('IPTV_USER').'/'.env('IPTV_PASSWORD').'/', '',$j['tvmedia']);
+                } else {
+                    // IF for some reason the .m3u8 doen't have the "live" parameter for live tv (It happened to me)
+                    $mainGroup = 'live';
+                    $tvmedia = str_replace(env('IPTV_URL').':'.env('IPTV_PORT').'/'.
+                            env('IPTV_USER').'/'.env('IPTV_PASSWORD').'/', '',$j['tvmedia']).'.m3u8';
                 }
+
 
                 IptvList::create([
                     'tvtitle'=>$j['tvtitle'],
@@ -117,6 +123,8 @@ class M3u8ToJsonController extends Controller
         } else {
             return "error";
         }
+
+        return "error2";
     }
 
     public function getEpg() {
@@ -149,9 +157,9 @@ class M3u8ToJsonController extends Controller
             }
             //return IptvList::with('epg')->where('tvtitle', 'like', '%telecine%')->get();
 
-            return "ok";
+            return LivetvEpg::count();
         } else {
-            return "error";
+            return "wrong request";
         }
     }
 }
