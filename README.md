@@ -16,12 +16,10 @@ Watch IPTV from your Internet service provider or free live TV channels from any
 - Remember to make a new database.sqlite inside storage folder
 - Run "php artisan migrate" 
 - Put your m3u file inside storage and name it as iptv.m3u
-- Run php artisan tinker to create your first account
-- Put your account e-mail in IPTV_EMAIL_ADMIN (.env)
-- Login and go to admin area
-- Set your iptv login and iptv password to your account
-
-
-## Customization
-
-You can customize the index.blade.php with some IDs to slide, top movies and top series.
+- Run php artisan serve to run the application
+- Login to your account (the same in the .env file)
+- Go to admin area (look at the top header)
+- Click Generate Json 
+- Click Store Channels (It will take a bit longer)
+- Click get EPG
+- Set some movies, series and live tv IDs to your .env file
